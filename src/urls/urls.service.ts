@@ -21,7 +21,7 @@ export class UrlsService {
 
     async getUrl(short: String) : Promise<Url>{
         if(short.length < 5  || short.length > 10){
-            throw new NotFoundException('O encurtador tem que ser um valor entre 5 e 10 caracteres.'+short)
+            return null;
         }else{
             return this.UrlRepository.getUrl(short);
         }
