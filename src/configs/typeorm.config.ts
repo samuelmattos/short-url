@@ -5,13 +5,13 @@ dotenv.config();
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: process.env.HOST,
+  host: process.env.DATABASE_URL,
   port: parseInt(process.env.PORT_DB),
   username:  process.env.USERDB,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  synchronize: true,
+  synchronize: false,
   extra: {
     ssl: (process.env.DB_SSL === 'true')
   }
