@@ -23,7 +23,12 @@ export class UrlsController {
         //  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         var path = request.path
         var short = path.replace('/', '');
-        const url = await this.urlsService.getUrl(short);        
-        return url.originalLink;
+        const url = await this.urlsService.getUrl(short);
+        if (url) {
+            return url.originalLink;
+        }
+
+        return 'Favor passar um shor';
+
     }
 }
