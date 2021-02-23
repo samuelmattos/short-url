@@ -1,5 +1,6 @@
 <p align="center">
   App backend escrito em nestjs para encurtar url's.
+  As url`s encurtadas tem um prazo de validade de três dias 
 </p>
 
 ## Descrição
