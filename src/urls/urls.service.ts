@@ -19,4 +19,12 @@ export class UrlsService {
         }
     }
 
+    async getUrl(short: String) : Promise<Url>{
+        // if(createUrlDto.originalLink == ''){
+        //     throw new UnprocessableEntityException('O campo url não pode ser vazio.')
+        // }else{
+            return this.UrlRepository.getUrl(short);
+        // }
+    }
+
 }

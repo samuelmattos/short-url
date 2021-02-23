@@ -1,13 +1,15 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { CreateUrlDto } from './dtos/create-url.dto';
 import { ReturnUrlDto } from './dtos/return-url.dto';
 import { UrlsService } from './urls.service';
+import { Request } from 'express';
+import { Url } from './urls.entity';
 
-@Controller('urls')
+@Controller()
 export class UrlsController {
     constructor(private urlsService: UrlsService) { }
 
-    @Post()
+    @Post('urls')
     async createUrl(
         @Body() createUrlDto: CreateUrlDto,
     ): Promise<ReturnUrlDto> {
@@ -15,5 +17,13 @@ export class UrlsController {
         return {
             newUrl
         }
+    }
+    @Get('**********')
+    async getUrl(@Req() request: Request) {
+        //  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        var path = request.path
+        var short = path.replace('/', '');
+        const url = await this.urlsService.getUrl(short);        
+        return url.originalLink;
     }
 }

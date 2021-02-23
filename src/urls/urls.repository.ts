@@ -5,7 +5,7 @@ import { Url } from "./urls.entity";
 @EntityRepository(Url)
 export class UrlRepository extends Repository<Url> {
 
-    async createUrl(createUrlDto: CreateUrlDto): Promise<String> {        
+    async createUrl(createUrlDto: CreateUrlDto): Promise<String> {
         const { originalLink } = createUrlDto;
         const url = this.create();
         url.originalLink = originalLink;
@@ -13,6 +13,20 @@ export class UrlRepository extends Repository<Url> {
         try {
             await url.save();
             return url.short;
+        } catch (error) {
+            throw new InternalServerErrorException(
+                'Erro ao gerar a url ',
+            );
+        }
+    }
+    async getUrl(short: String): Promise<Url> {
+        const url =  this.findOne({
+            where: {
+                short,
+            },
+          });
+        try {
+            return url;
         } catch (error) {
             throw new InternalServerErrorException(
                 'Erro ao gerar a url ',
