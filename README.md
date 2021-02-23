@@ -1,54 +1,22 @@
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-
+<p align="center">
+  App backend escrito em nestjs para encurtar url's.
 </p>
 
-## Description
+## Descrição
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[API](https://documenter.getpostman.com/view/5671604/TWDZJc4tt)
 
-## Installation
+## Instalação
 
+1. Execute o comando do npm na pasta do projeto:
 ```bash
 $ npm install
 ```
-
-## Running the app
-
+2. Execute o comando do docker na pasta do projeto, esse comando subirá um container docker os dados de acesso estão no arquivo docker-compose.yml
 ```bash
-# development
-$ npm run start
+$ docker-compose up -d
+```
+3. Altere o nome do arquivo .env.example para .env que se encontra na raiz do projeto, após renomear o arquivo incluir as credenciais do seu banco de dados.
 
-# watch mode
+## Rodando o arquivo
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

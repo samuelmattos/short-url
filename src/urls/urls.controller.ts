@@ -11,9 +11,10 @@ export class UrlsController {
 
     @Post('encurtador')
     async createUrl(
-        @Body() createUrlDto: CreateUrlDto,
+        @Body() createUrlDto: CreateUrlDto, @Req() request: Request
     ): Promise<ReturnUrlDto> {
-        const newUrl = await this.urlsService.createUrl(createUrlDto);
+        const urlFind = await this.urlsService.createUrl(createUrlDto);
+        var newUrl = request.protocol + '://' + request.get('host') +'/'+ urlFind;
         return {
             newUrl
         }
