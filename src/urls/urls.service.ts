@@ -11,7 +11,7 @@ export class UrlsService {
         private UrlRepository: UrlRepository,
     ) { }
 
-    async createUrl(createUrlDto: CreateUrlDto) : Promise<Url>{
+    async createUrl(createUrlDto: CreateUrlDto) : Promise<String>{
         if(createUrlDto.originalLink == ''){
             throw new UnprocessableEntityException('O campo url não pode ser vazio.')
         }else{

@@ -14,8 +14,7 @@ import {
     @PrimaryGeneratedColumn('uuid')
     id: string;
   
-    @Column({ nullable: false, type: 'varchar', length: 10 })
-    
+    @Column({ nullable: false, type: 'varchar', length: 10 })    
     short: string;
   
     @Column({ nullable: false, type: 'varchar', length: 300 })

@@ -11,10 +11,9 @@ export class UrlsController {
     async createUrl(
         @Body() createUrlDto: CreateUrlDto,
     ): Promise<ReturnUrlDto> {
-        const url = await this.urlsService.createUrl(createUrlDto);
+        const newUrl = await this.urlsService.createUrl(createUrlDto);
         return {
-            url,
-            message: 'Url cadastrada com sucesso',
+            newUrl
         }
     }
 }
