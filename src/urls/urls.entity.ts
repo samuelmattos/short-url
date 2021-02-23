@@ -19,6 +19,9 @@ import {
   
     @Column({ nullable: false, type: 'varchar', length: 300 })
     originalLink: string;
+
+    @Column({ type: 'date', default: () => 'CURRENT_TIMESTAMP' })
+    expireDate: Date;
   
     @CreateDateColumn()
     createdAt: Date;
